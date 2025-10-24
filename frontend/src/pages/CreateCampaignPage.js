@@ -254,7 +254,7 @@ const CreateCampaignPage = () => {
 
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <Label htmlFor="goal">Funding Goal ($) *</Label>
+              <Label htmlFor="goal">Funding Goal (₹) *</Label>
               <Input
                 id="goal"
                 type="number"
