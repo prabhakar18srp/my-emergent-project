@@ -253,9 +253,9 @@ const CampaignDetailPage = () => {
             <div className="bg-slate-800/30 border border-slate-700 rounded-2xl p-6 sticky top-24">
               <div className="mb-6">
                 <p className="text-3xl font-bold text-purple-400 mb-1">
-                  ${campaign.raised_amount.toLocaleString()}
+                  ₹{campaign.raised_amount.toLocaleString()}
                 </p>
-                <p className="text-slate-400">pledged of ${campaign.goal_amount.toLocaleString()} goal</p>
+                <p className="text-slate-400">pledged of ₹{campaign.goal_amount.toLocaleString()} goal</p>
               </div>
 
               <div className="progress-bar mb-6">
