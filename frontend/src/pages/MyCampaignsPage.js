@@ -101,7 +101,7 @@ const MyCampaignsPage = () => {
                       </div>
                       <div>
                         <p className="text-sm text-slate-400">Goal</p>
-                        <p className="text-lg font-bold">${campaign.goal_amount.toLocaleString()}</p>
+                        <p className="text-lg font-bold">₹{campaign.goal_amount.toLocaleString()}</p>
                       </div>
                     </div>
                     
