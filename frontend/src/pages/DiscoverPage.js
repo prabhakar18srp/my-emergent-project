@@ -49,8 +49,8 @@ const CampaignCard = ({ campaign, analysis }) => {
         
         <div className="flex items-center justify-between mb-4">
           <div>
-            <p className="text-xl font-bold text-purple-400">${campaign.raised_amount.toLocaleString()}</p>
-            <p className="text-xs text-slate-500">of ${campaign.goal_amount.toLocaleString()} goal</p>
+            <p className="text-xl font-bold text-purple-400">₹{campaign.raised_amount.toLocaleString()}</p>
+            <p className="text-xs text-slate-500">of ₹{campaign.goal_amount.toLocaleString()} goal</p>
           </div>
           <div className="text-right">
             <p className="text-sm font-semibold text-slate-300">{campaign.backers_count} Backers</p>
