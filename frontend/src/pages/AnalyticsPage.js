@@ -160,7 +160,7 @@ const AnalyticsPage = () => {
                         <p className="text-xs text-slate-400">Realistic</p>
                       </div>
                       <div className="bg-green-900/20 border border-green-500/30 rounded-xl p-4 text-center">
-                        <p className="text-2xl font-bold text-green-400 mb-1">${monteCarloData.optimistic.toLocaleString()}</p>
+                        <p className="text-2xl font-bold text-green-400 mb-1">₹{monteCarloData.optimistic.toLocaleString()}</p>
                         <p className="text-xs text-slate-400">Optimistic</p>
                       </div>
                     </div>
