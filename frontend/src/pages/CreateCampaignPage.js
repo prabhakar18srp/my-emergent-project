@@ -376,7 +376,7 @@ const CreateCampaignPage = () => {
               </div>
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <Label>Amount ($)</Label>
+                  <Label>Amount (₹)</Label>
                   <Input
                     type="number"
                     placeholder="25"
