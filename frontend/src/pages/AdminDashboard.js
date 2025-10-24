@@ -108,7 +108,7 @@ const AdminDashboard = () => {
                 <span className="text-2xl">💰</span>
               </div>
               <p className="text-sm text-slate-400 mb-1">Total Raised</p>
-              <p className="text-3xl font-bold">${stats.total_raised.toLocaleString()}</p>
+              <p className="text-3xl font-bold">₹{stats.total_raised.toLocaleString()}</p>
             </div>
           </div>
         )}
