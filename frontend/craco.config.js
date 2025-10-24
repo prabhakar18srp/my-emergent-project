@@ -88,6 +88,15 @@ if (config.enableVisualEdits || config.enableHealthCheck) {
       devServerConfig = setupDevServer(devServerConfig);
     }
 
+    // Add proxy for API calls
+    devServerConfig.proxy = {
+      '/api': {
+        target: 'http://localhost:8001',
+        changeOrigin: true,
+        secure: false,
+      }
+    };
+
     // Add health check endpoints if enabled
     if (config.enableHealthCheck && setupHealthEndpoints && healthPluginInstance) {
       const originalSetupMiddlewares = devServerConfig.setupMiddlewares;
@@ -105,6 +114,18 @@ if (config.enableVisualEdits || config.enableHealthCheck) {
       };
     }
 
+    return devServerConfig;
+  };
+} else {
+  // If neither visual edits nor health check are enabled, still add proxy
+  webpackConfig.devServer = (devServerConfig) => {
+    devServerConfig.proxy = {
+      '/api': {
+        target: 'http://localhost:8001',
+        changeOrigin: true,
+        secure: false,
+      }
+    };
     return devServerConfig;
   };
 }
