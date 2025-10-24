@@ -152,7 +152,7 @@ const AnalyticsPage = () => {
                     {/* Three Scenarios */}
                     <div className="grid grid-cols-3 gap-4 mb-6">
                       <div className="bg-red-900/20 border border-red-500/30 rounded-xl p-4 text-center">
-                        <p className="text-2xl font-bold text-red-400 mb-1">${monteCarloData.pessimistic.toLocaleString()}</p>
+                        <p className="text-2xl font-bold text-red-400 mb-1">₹{monteCarloData.pessimistic.toLocaleString()}</p>
                         <p className="text-xs text-slate-400">Pessimistic</p>
                       </div>
                       <div className="bg-yellow-900/20 border border-yellow-500/30 rounded-xl p-4 text-center">
