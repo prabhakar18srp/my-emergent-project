@@ -1110,11 +1110,11 @@ async def create_checkout(data: PledgeRequest, request: Request):
     if not campaign:
         raise HTTPException(404, "Campaign not found")
     
-    # Fixed pledge amounts
+    # Fixed pledge amounts (in INR)
     PLEDGE_PACKAGES = {
-        "small": 10.0,
-        "medium": 50.0,
-        "large": 100.0
+        "small": 500.0,
+        "medium": 2500.0,
+        "large": 5000.0
     }
     
     # Default to small package
@@ -1132,12 +1132,12 @@ async def create_checkout(data: PledgeRequest, request: Request):
             payment_method_types=['card'],
             line_items=[{
                 'price_data': {
-                    'currency': 'usd',
+                    'currency': 'inr',
                     'product_data': {
                         'name': f'Back Campaign: {campaign["title"]}',
                         'description': f'Supporting {campaign["title"]}',
                     },
-                    'unit_amount': int(amount * 100),  # Stripe uses cents
+                    'unit_amount': int(amount * 100),  # Stripe uses paise (smallest unit)
                 },
                 'quantity': 1,
             }],
@@ -1154,7 +1154,7 @@ async def create_checkout(data: PledgeRequest, request: Request):
         transaction = PaymentTransaction(
             session_id=session.id,
             amount=amount,
-            currency="usd",
+            currency="inr",
             campaign_id=data.campaign_id,
             user_id=user.id,
             metadata={"campaign_id": data.campaign_id, "user_id": user.id}
