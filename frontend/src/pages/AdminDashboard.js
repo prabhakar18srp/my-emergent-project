@@ -144,8 +144,8 @@ const AdminDashboard = () => {
                       </span>
                     </td>
                     <td className="p-4 text-slate-400">{campaign.creator_name}</td>
-                    <td className="p-4">${campaign.goal_amount.toLocaleString()}</td>
-                    <td className="p-4 text-purple-400 font-semibold">${campaign.raised_amount.toLocaleString()}</td>
+                    <td className="p-4">₹{campaign.goal_amount.toLocaleString()}</td>
+                    <td className="p-4 text-purple-400 font-semibold">₹{campaign.raised_amount.toLocaleString()}</td>
                     <td className="p-4">
                       <span className={`px-3 py-1 rounded-full text-sm ${
                         campaign.status === 'active' ? 'bg-green-500/10 text-green-400' : 'bg-slate-500/10 text-slate-400'
