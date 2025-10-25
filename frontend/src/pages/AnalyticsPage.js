@@ -16,11 +16,7 @@ const AnalyticsPage = () => {
   const navigate = useNavigate();
   const [campaigns, setCampaigns] = useState([]);
   const [selectedCampaign, setSelectedCampaign] = useState(null);
-  const [monteCarloData, setMonteCarloData] = useState(null);
-  const [competitorData, setCompetitorData] = useState(null);
-  const [strategicData, setStrategicData] = useState(null);
   const [loading, setLoading] = useState(true);
-  const [analysisLoading, setAnalysisLoading] = useState(false);
 
   useEffect(() => {
     fetchCampaigns();
@@ -32,7 +28,6 @@ const AnalyticsPage = () => {
       setCampaigns(response.data);
       if (response.data.length > 0) {
         setSelectedCampaign(response.data[0]);
-        await fetchAllAnalytics(response.data[0].id);
       }
     } catch (error) {
       toast.error('Failed to load campaigns');
@@ -41,37 +36,9 @@ const AnalyticsPage = () => {
     }
   };
 
-  const fetchAllAnalytics = async (campaignId) => {
-    setAnalysisLoading(true);
-    try {
-      const [monteCarloResp, competitorResp, strategicResp] = await Promise.all([
-        axios.get(`${API}/analytics/monte-carlo/${campaignId}`),
-        axios.get(`${API}/analytics/competitor-analysis/${campaignId}`),
-        axios.get(`${API}/analytics/strategic-recommendations/${campaignId}`)
-      ]);
-      
-      setMonteCarloData(monteCarloResp.data);
-      setCompetitorData(competitorResp.data);
-      setStrategicData(strategicResp.data);
-    } catch (error) {
-      console.error('Failed to fetch analytics', error);
-      toast.error('Failed to load analytics data');
-    } finally {
-      setAnalysisLoading(false);
-    }
-  };
-
   const handleCampaignChange = (campaignId) => {
     const campaign = campaigns.find(c => c.id === campaignId);
     setSelectedCampaign(campaign);
-    fetchAllAnalytics(campaignId);
-  };
-
-  const handleRefreshAnalysis = () => {
-    if (selectedCampaign) {
-      toast.success('Refreshing analysis...');
-      fetchAllAnalytics(selectedCampaign.id);
-    }
   };
 
   if (loading) {
