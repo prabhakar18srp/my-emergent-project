@@ -3,9 +3,11 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import { Button } from '../components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '../components/ui/select';
-import { ArrowLeft, TrendingUp, Target, DollarSign, BarChart3, Search, Sparkles, Zap, AlertCircle, Lightbulb, Users, RefreshCw } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import { toast } from 'sonner';
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Area, AreaChart } from 'recharts';
+import CompetitorAnalysis from '../components/Analytics/CompetitorAnalysis';
+import MonteCarloSimulator from '../components/Analytics/MonteCarloSimulator';
+import SuccessPrediction from '../components/Analytics/SuccessPrediction';
 
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
